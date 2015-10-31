@@ -9,7 +9,14 @@ var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0x441122, 0.5 );
 document.body.insertBefore(renderer.domElement, document.body.firstChild);
+window.addEventListener( 'resize', onWindowResize, false );
 
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+}
 
 var geometry = new THREE.IcosahedronGeometry(2,0);
 var material = new THREE.MeshPhongMaterial({
