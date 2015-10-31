@@ -3,11 +3,18 @@
 <head>
   <link rel="shortcut icon" type="image/ico" href="favicon.ico">
   <title>Sam's Music Visualizer</title>
+  <style>
+    * { margin: 0; padding: 0 }
+    canvas { position: fixed; z-index: -1}
+  </style>
 </head>
 <body>
-  <canvas id="canvas" width="1200" height="400"></canvas>
   <audio id="player"></audio>
+  <div id="jumbotron">
+    <h1>Ayyy lmao</h1>
+  </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script src="js/soundcloudLoader.js"></script>
 <script src="js/soundcloudObject.js"></script>
