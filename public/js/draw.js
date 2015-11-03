@@ -55,17 +55,18 @@ var render = function () {
 
   requestAnimationFrame( render );
 
-  x_rotation_velocity = green / 75;
-  y_rotation_velocity = blue / 75;
-  z_rotation_velocity = red / 75;
+  x_rotation_velocity = green / 85;
+  y_rotation_velocity = blue / 85;
+  z_rotation_velocity = red / 85;
   shape.rotation.y += x_rotation_velocity;
   shape.rotation.x += y_rotation_velocity;
   shape.rotation.x += z_rotation_velocity;
 
-  shape.geometry = new THREE.IcosahedronGeometry(audioSource.volume / 6000, 0);
+  shape.geometry = new THREE.IcosahedronGeometry(audioSource.volume / 7000, 0);
 
   renderer.render(scene, camera);
 };
+
 //"https://soundcloud.com/anna-lunoe/hyperhousemegamix"
 //"https://soundcloud.com/grey/zedd-beautiful-now-remix"
 loader.loadStream("https://soundcloud.com/anna-lunoe/hyperhousemegamix", function(){
@@ -74,6 +75,13 @@ loader.loadStream("https://soundcloud.com/anna-lunoe/hyperhousemegamix", functio
   render();
 });
 
+var change_song = function() {
+  soundcloud_url = document.getElementById("soundcloud_url_input").value;
+  loader.loadStream(soundcloud_url, function(){
+    audioSource.playStream(loader.streamUrl());
+    render();
+  });
+};
 
 /*var draw = function() {
     for(bin = 0; bin < audioSource.streamData.length; bin ++) {
