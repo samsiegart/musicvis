@@ -32,6 +32,24 @@ canvas {
   left: 0;
 }
 
+#nowPlaying h3 {
+  color: #060606;
+}
+
+#nowPlaying a {
+  text-decoration: none;
+}
+
+#infoArtist a {
+  font-size: 14px;
+  color: #444;
+}
+
+#infoTrack a {
+  font-size: 16px;
+  color: #666;
+}
+
 #controlPanel {
   position: relative;
   display: inline-block;
