@@ -62,9 +62,9 @@ var render = function () {
   shape.rotation.x += y_rotation_velocity;
   shape.rotation.x += z_rotation_velocity;
 
-  var temp = shape.geometry;
+  shape.geometry.dispose();
+  delete shape.geometry;
   shape.geometry = new THREE.IcosahedronGeometry(audioSource.volume / 7000, 0);
-  delete temp;
 
   renderer.render(scene, camera);
 };
