@@ -5,7 +5,6 @@
 
 html, body {
   font-family: "Avenir Next",Avenir,sans-serif;
-  height: 100%;
 }
 
 canvas {
@@ -17,28 +16,28 @@ canvas {
   text-align: center;
 }
 
-#nowPlaying {
-  z-index: 50;
-  position: absolute;
-  padding: 10px;
-  bottom: 0;
-  float: left;
-  text-align: left;
-  width: 30%;
-}
-
-#controlPanel {
+#bottomBar {
   position: absolute;
   bottom: 0;
   width: 100%;
-  right: 110px;
-  padding: 10px;
-  text-align: right;
+  background-color: #777;
 }
 
-#urlForm {
+#nowPlaying {
+  z-index: 50;
   position: relative;
-  bottom: 5px;
+  width: 30%;
+  display: inline-block;
+  padding: 15px;
+  left: 0;
+}
+
+#controlPanel {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  padding: 10px;
+  text-align: right;
 }
 
 #soundcloud_url_input {
@@ -47,9 +46,9 @@ canvas {
   color: #666;
   background-color: #222;
   border: 0px;
-  width: 60%;
-  max-width: 745px;
   right: 5px;
+  width: 60%;
+  max-width: 720px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -78,13 +77,22 @@ canvas {
 
 #player {
   position: relative;
-  left: 0px;
-  width: 65%;
+  padding-top: 5px;
+  width: 60%;
   max-width: 800px;
 }
 
 #poweredBy {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+  position: relative;
+  left: 10px;
+}
+
+#infoImage {
+  position: relative;
+  float: left;
+}
+
+#trackInfo {
+  position: relative;
+  left: 10px;
 }

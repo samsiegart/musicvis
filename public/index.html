@@ -9,20 +9,24 @@
   <div id="jumbotron">
     <h1 id="title">Ayyy lmao music visualizer</h1>
   </div>
-  <div id="nowPlaying">
-    <h3>Now Playing:</h3>
-    <img id="infoImage" src="">
-    <div id="infoArtist"></div>
-    <div id="infoTrack"></div>
+  <div id="bottomBar">
+    <div id="nowPlaying">
+      <h3>Now Playing:</h3>
+      <img id="infoImage" src="">
+      <div id="trackInfo">
+        <div id="infoArtist"></div>
+        <div id="infoTrack"></div>
+      </div>
+      <a href="http://soundcloud.com"><img id="poweredBy" src="powered_by_black.png" /></a>
+    </div>
+    <div id="controlPanel">
+      <form id="urlForm">
+        <input type="text" id="soundcloud_url_input" placeholder="Paste a soundcloud url"></input>
+        <button type="submit" id="submit">Jam!</button>
+      </form>
+      <audio id="player" controls="" autoplay="" preload autobuffer></audio>
+    </div>
   </div>
-  <div id="controlPanel">
-    <form id="urlForm">
-      <input type="text" id="soundcloud_url_input" placeholder="Paste a soundcloud url"></input>
-      <button type="submit" id="submit">Jam!</button>
-    </form>
-    <audio id="player" controls="" autoplay="" preload autobuffer></audio>
-  </div>
-  <a href="http://soundcloud.com"><img id="poweredBy" src="powered_by_black.png" /></a>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
 <script src="http://connect.soundcloud.com/sdk.js"></script>
