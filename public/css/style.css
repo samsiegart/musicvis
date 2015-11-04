@@ -14,6 +14,7 @@ canvas {
 
 #jumbotron {
   text-align: center;
+  color: #666;
 }
 
 #bottomBar {
@@ -21,6 +22,17 @@ canvas {
   bottom: 0;
   width: 100%;
   background: linear-gradient(#661B33, #280613);
+  overflow: hidden;
+}
+
+#iconRow {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+#upArrow {
+  height: 30px;
 }
 
 #nowPlaying {
@@ -29,6 +41,7 @@ canvas {
   width: 30%;
   display: inline-block;
   padding: 15px;
+  padding-top: 0px;
   left: 0;
 }
 
@@ -61,7 +74,6 @@ canvas {
 #soundcloud_url_input {
   font-size: 16px;
   padding: 4px;
-  color: #666;
   background-color: #222;
   border: 0px;
   right: 5px;
@@ -70,6 +82,7 @@ canvas {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  color: #666;
 }
 
 #submit {
@@ -113,4 +126,26 @@ canvas {
 #trackInfo {
   position: relative;
   left: 10px;
+}
+
+.show {
+  animation-name: open;
+  animation-duration: 0.5s;
+  max-height: 100%;
+}
+
+.hide {
+  animation-name: close;
+  animation-duration: 0.5s;
+  max-height: 30px;
+}
+
+@keyframes open {
+  0%  {max-height: 30px;}
+  100% {max-height: 100%;}
+}
+
+@keyframes close {
+  0%  {max-height: 100%;}
+  100% {max-height: 30px;}
 }

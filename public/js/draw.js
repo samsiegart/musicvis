@@ -18,6 +18,17 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
+document.getElementById('iconRow').addEventListener('click', function(e){
+  var bottomBar = document.getElementById('bottomBar');
+  if (bottomBar.classList.contains('hide')){
+    bottomBar.classList.remove('hide');
+    bottomBar.classList.add('show');
+  } else {
+    bottomBar.classList.remove('show');
+    bottomBar.classList.add('hide');
+  }
+});
+
 var geometry = new THREE.IcosahedronGeometry(2,0);
 var material = new THREE.MeshPhongMaterial({
   color: 0xBBBBBB,
