@@ -7,7 +7,7 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeig
 
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setClearColor( 0x441122, 0.5 );
+renderer.setClearColor( 0x441122, 1);
 document.body.insertBefore(renderer.domElement, document.body.firstChild);
 window.addEventListener( 'resize', onWindowResize, false );
 
