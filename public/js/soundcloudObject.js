@@ -1,13 +1,11 @@
 var SoundCloudAudioSource = function(audioElement) {
-    var player = document.getElementById(audioElement);
+    player.setAttribute("crossOrigin", "anonymous");
     var self = this;
     var analyser;
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
-    player.crossOrigin = "anonymous";
     var source = audioCtx.createMediaElementSource(player);
-    source.crossOrigin = "anonymous";
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
     var sampleAudioStream = function() {
@@ -18,9 +16,11 @@ var SoundCloudAudioSource = function(audioElement) {
         }
         self.volume = total;
     };
+
     setInterval(sampleAudioStream, 20);
     this.volume = 0;
     this.streamData = new Uint8Array(128);
+
     this.playStream = function(streamUrl) {
         player.setAttribute('src', streamUrl);
         player.play();

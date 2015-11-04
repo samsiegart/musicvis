@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="shortcut icon" type="image/ico" href="favicon.ico">
   <title>Sam's Music Visualizer</title>
-  <style>
-    * { margin: 0; padding: 0 }
-    canvas { position: fixed; z-index: -1}
-  </style>
 </head>
 <body>
-  <audio id="player"></audio>
   <div id="jumbotron">
-    <h1>Ayyy lmao</h1>
-    <input type="text" id="soundcloud_url_input" placeholder="enter a soundcloud url"></input>
-    <button onclick="change_song()">Jam!</button>
+    <h1 id="title">Ayyy lmao</h1>
+  </div>
+  <div id="controlPanel">
+    <form id="urlForm">
+      <input type="text" id="soundcloud_url_input" placeholder="Paste a soundcloud url"></input>
+      <button type="submit" id="submit">Jam!</button>
+    </form>
+    <audio id="player" controls="" autoplay="" preload autobuffer></audio>
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>

@@ -1,6 +1,6 @@
-var audioSource = new SoundCloudAudioSource('player');
 var player =  document.getElementById('player');
 var loader = new SoundcloudLoader(player);
+var audioSource = new SoundCloudAudioSource(player);
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -49,39 +49,42 @@ var render = function () {
     red += audioSource.streamData[bin] / 6000.0;
   }
 
-  dirLight.color.r = red*1.6;
+  dirLight.color.r = 1.6*red;
   dirLight.color.g = green;
-  dirLight.color.b = blue*1.3;
+  dirLight.color.b = 1.3*blue;
 
   requestAnimationFrame( render );
 
-  x_rotation_velocity = green / 85;
-  y_rotation_velocity = blue / 85;
-  z_rotation_velocity = red / 85;
+  x_rotation_velocity = green / 30;
+  y_rotation_velocity = blue / 30;
+  z_rotation_velocity = red / 30;
   shape.rotation.y += x_rotation_velocity;
   shape.rotation.x += y_rotation_velocity;
   shape.rotation.x += z_rotation_velocity;
 
+  var temp = shape.geometry;
   shape.geometry = new THREE.IcosahedronGeometry(audioSource.volume / 7000, 0);
+  delete temp;
 
   renderer.render(scene, camera);
 };
 
 //"https://soundcloud.com/anna-lunoe/hyperhousemegamix"
 //"https://soundcloud.com/grey/zedd-beautiful-now-remix"
-loader.loadStream("https://soundcloud.com/anna-lunoe/hyperhousemegamix", function(){
+loader.loadStream("https://soundcloud.com/douglas-e-luciana/milky-chance-running-official", function(){
   audioSource.playStream(loader.streamUrl());
   //draw();
-  render();
 });
 
-var change_song = function() {
+render();
+
+document.getElementById("urlForm").addEventListener("submit", function(e) {
+  e.preventDefault();
   soundcloud_url = document.getElementById("soundcloud_url_input").value;
   loader.loadStream(soundcloud_url, function(){
     audioSource.playStream(loader.streamUrl());
-    render();
   });
-};
+});
 
 /*var draw = function() {
     for(bin = 0; bin < audioSource.streamData.length; bin ++) {

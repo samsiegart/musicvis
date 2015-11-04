@@ -43,8 +43,10 @@ var SoundcloudLoader = function(player) {
   this.directStream = function(direction){
     if(direction=='toggle'){
       if (this.player.paused) {
+        console.log("play");
         this.player.play();
       } else {
+        console.log("pause");
         this.player.pause();
       }
     }
