@@ -4,6 +4,7 @@
 }
 
 html, body {
+  font-family: "Avenir Next",Avenir,sans-serif;
   height: 100%;
 }
 
@@ -16,11 +17,23 @@ canvas {
   text-align: center;
 }
 
+#nowPlaying {
+  z-index: 50;
+  position: absolute;
+  padding: 10px;
+  bottom: 0;
+  float: left;
+  text-align: left;
+  width: 30%;
+}
+
 #controlPanel {
   position: absolute;
   bottom: 0;
   width: 100%;
-  text-align: center;
+  right: 110px;
+  padding: 10px;
+  text-align: right;
 }
 
 #urlForm {
@@ -34,7 +47,9 @@ canvas {
   color: #666;
   background-color: #222;
   border: 0px;
-  width: 50%;
+  width: 60%;
+  max-width: 745px;
+  right: 5px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -63,5 +78,13 @@ canvas {
 
 #player {
   position: relative;
-  width: 80%;
+  left: 0px;
+  width: 65%;
+  max-width: 800px;
+}
+
+#poweredBy {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }

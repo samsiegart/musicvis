@@ -71,19 +71,57 @@ var render = function () {
 
 //"https://soundcloud.com/anna-lunoe/hyperhousemegamix"
 //"https://soundcloud.com/grey/zedd-beautiful-now-remix"
-loader.loadStream("https://soundcloud.com/douglas-e-luciana/milky-chance-running-official", function(){
-  audioSource.playStream(loader.streamUrl());
-  //draw();
-});
+var streamDatIsh = function(songUrl) {
+  loader.loadStream(songUrl, function(){
+    var artistLink = document.createElement('a');
+    artistLink.setAttribute('href', loader.sound.user.permalink_url);
+    artistLink.innerHTML = loader.sound.user.username;
+    var trackLink = document.createElement('a');
+    trackLink.setAttribute('href', loader.sound.permalink_url);
+    if(loader.sound.kind=="playlist"){
+      trackLink.innerHTML = "<p>" + loader.sound.tracks[loader.streamPlaylistIndex].title + "</p>" + "<p>"+loader.sound.title+"</p>";
+    }else{
+      trackLink.innerHTML = loader.sound.title;
+    }
+    var image = loader.sound.artwork_url ? loader.sound.artwork_url : loader.sound.user.avatar_url;
 
+    var infoImage = document.getElementById('infoImage');
+    var infoArtist = document.getElementById('infoArtist');
+    var infoTrack = document.getElementById('infoTrack');
+
+    infoImage.setAttribute('src', image);
+
+    infoArtist.innerHTML = '';
+    infoArtist.appendChild(artistLink);
+
+    infoTrack.innerHTML = '';
+    infoTrack.appendChild(trackLink);
+
+    var trackToken = loader.sound.permalink_url.substr(22);
+    window.location = '#' + trackToken;
+
+    audioSource.playStream(loader.streamUrl());
+    //draw();
+  });
+};
+
+
+var initialize = function () {
+  var trackUrl = "";
+  if (window.location.hash) {
+    trackUrl = 'https://soundcloud.com/' + window.location.hash.substr(1);
+  } else {
+    trackUrl = "https://soundcloud.com/douglas-e-luciana/milky-chance-running-official"
+  }
+  streamDatIsh(trackUrl);
+}
+initialize();
 render();
 
 document.getElementById("urlForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  soundcloud_url = document.getElementById("soundcloud_url_input").value;
-  loader.loadStream(soundcloud_url, function(){
-    audioSource.playStream(loader.streamUrl());
-  });
+  var soundcloud_url = document.getElementById("soundcloud_url_input").value;
+  streamDatIsh(soundcloud_url);
 });
 
 /*var draw = function() {
