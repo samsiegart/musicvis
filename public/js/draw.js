@@ -18,7 +18,10 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
+var clickedArrow = false;
+
 document.getElementById('iconRow').addEventListener('click', function(e){
+  clickedArrow = true;
   var bottomBar = document.getElementById('bottomBar');
   if (bottomBar.classList.contains('hide')){
     bottomBar.classList.remove('hide');
@@ -28,6 +31,14 @@ document.getElementById('iconRow').addEventListener('click', function(e){
     bottomBar.classList.add('hide');
   }
 });
+
+window.onload = function() {
+  setTimeout(function(){
+    if(clickedArrow == false){
+      document.getElementById('iconRow').click();
+    }
+  }, 3000);
+}
 
 var geometry = new THREE.IcosahedronGeometry(2,0);
 var material = new THREE.MeshPhongMaterial({
@@ -122,7 +133,7 @@ var initialize = function () {
   if (window.location.hash) {
     trackUrl = 'https://soundcloud.com/' + window.location.hash.substr(1);
   } else {
-    trackUrl = "https://soundcloud.com/douglas-e-luciana/milky-chance-running-official"
+    trackUrl = "https://soundcloud.com/sunday-girl/sunday-girl-where-is-my-mind"
   }
   streamDatIsh(trackUrl);
 }
