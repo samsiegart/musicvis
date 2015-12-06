@@ -136,7 +136,7 @@ var initialize = function () {
   if (window.location.hash) {
     trackUrl = 'https://soundcloud.com/' + window.location.hash.substr(1);
   } else {
-    trackUrl = "https://soundcloud.com/majorlazer/major-lazer-light-it-up-feat-nyla-fuse-odgremix"
+    trackUrl = "https://soundcloud.com/wearegalantis/peanut-butter-jelly"
   }
   streamDatIsh(trackUrl);
 }
