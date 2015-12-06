@@ -53,6 +53,9 @@ scene.add( shape );
 
 var dirLight = new THREE.DirectionalLight(0xffffff);
 dirLight.position.set(0, -1, 1.1);
+dirLight.color.r = 50;
+dirLight.color.g = 15;
+dirLight.color.b = 70;
 scene.add(dirLight);
 
 camera.position.z = 5;

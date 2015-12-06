@@ -39,8 +39,8 @@ canvas {
 #nowPlaying {
   z-index: 50;
   position: relative;
-  width: 30%;
   display: inline-block;
+  width: 45%;
   padding: 15px;
   padding-top: 0px;
   left: 0;
@@ -67,9 +67,11 @@ canvas {
 #controlPanel {
   position: relative;
   display: inline-block;
-  width: 60%;
+  float: right;
+  width: 45%;
   padding: 10px;
   text-align: right;
+  top: 3em;
 }
 
 #soundcloud_url_input {
@@ -78,7 +80,7 @@ canvas {
   background-color: #222;
   border: 0px;
   right: 5px;
-  width: 60%;
+  width: 80%;
   max-width: 720px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -110,7 +112,7 @@ canvas {
 #player {
   position: relative;
   padding-top: 5px;
-  width: 60%;
+  width: 80%;
   max-width: 800px;
 }
 
@@ -149,4 +151,15 @@ canvas {
 @keyframes close {
   0%  {max-height: 100%;}
   100% {max-height: 30px;}
+}
+
+@media all and (max-width: 700px) {
+  #controlPanel {
+    width: 90%;
+    top: 0%;
+  }
+
+  #nowPlaying {
+    width: 90%;
+  }
 }
