@@ -94,8 +94,6 @@ var render = function () {
   renderer.render(scene, camera);
 };
 
-//"https://soundcloud.com/anna-lunoe/hyperhousemegamix"
-//"https://soundcloud.com/grey/zedd-beautiful-now-remix"
 var streamDatIsh = function(songUrl) {
   loader.loadStream(songUrl, function(){
     var artistLink = document.createElement('a');
@@ -136,7 +134,7 @@ var initialize = function () {
   if (window.location.hash) {
     trackUrl = 'https://soundcloud.com/' + window.location.hash.substr(1);
   } else {
-    trackUrl = "https://soundcloud.com/wearegalantis/peanut-butter-jelly"
+    trackUrl = 'https://soundcloud.com/yung-lean-doer/ginseng-strip-2002'
   }
   streamDatIsh(trackUrl);
 }
