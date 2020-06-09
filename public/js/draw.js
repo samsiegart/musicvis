@@ -20,7 +20,7 @@ function onWindowResize() {
 
 var clickedArrow = false;
 
-document.getElementById('iconRow').addEventListener('click', function(e) {
+document.getElementById('iconRow').addEventListener('click', function(e){
   clickedArrow = true;
   var bottomBar = document.getElementById('bottomBar');
   if (bottomBar.classList.contains('hide')){
@@ -49,31 +49,21 @@ var material = new THREE.MeshPhongMaterial({
 });
 
 var shape = new THREE.Mesh( geometry, material );
-scene.add(shape);
+scene.add( shape );
 
-var dirLightR = new THREE.DirectionalLight(0xffffff);
-var dirLightG = new THREE.DirectionalLight(0xffffff);
-var dirLightB = new THREE.DirectionalLight(0xffffff);
-
-dirLightR.position.set(0, -1, 1.1);
-dirLightG.position.set(-1, -1, 1.1);
-dirLightB.position.set(1, -1, 1.1);
-
-dirLightR.color.r = 50;
-dirLightG.color.g = 15;
-dirLightB.color.b = 70;
-
-scene.add(dirLightR);
-scene.add(dirLightG);
-scene.add(dirLightB);
+var dirLight = new THREE.DirectionalLight(0xffffff);
+dirLight.position.set(0, -1, 1.1);
+dirLight.color.r = 50;
+dirLight.color.g = 15;
+dirLight.color.b = 70;
+scene.add(dirLight);
 
 camera.position.z = 5;
 
-var red = 0;
-var green = 0;
-var blue = 0;
-
 var render = function () {
+  var red = 0;
+  var green = 0;
+  var blue = 0;
   for(bin = 0; bin < (audioSource.streamData.length / 4); bin++){
     green += audioSource.streamData[bin] / 6000.0;
   }
@@ -84,18 +74,18 @@ var render = function () {
     red += audioSource.streamData[bin] / 6000.0;
   }
 
-  dirLightR.color.r = 1.6*red;
-  dirLightG.color.g = green;
-  dirLightB.color.b = 1.3*blue;
+  dirLight.color.r = 1.6*red;
+  dirLight.color.g = green;
+  dirLight.color.b = 1.3*blue;
 
-  requestAnimationFrame(render);
+  requestAnimationFrame( render );
 
   x_rotation_velocity = green / 30;
   y_rotation_velocity = blue / 30;
   z_rotation_velocity = red / 30;
   shape.rotation.y += x_rotation_velocity;
   shape.rotation.x += y_rotation_velocity;
-  shape.rotation.z += z_rotation_velocity;
+  shape.rotation.x += z_rotation_velocity;
 
   shape.geometry.dispose();
   delete shape.geometry;
@@ -182,3 +172,4 @@ document.getElementById("urlForm").addEventListener("submit", function(e) {
 
     requestAnimationFrame(draw);
 };*/
+
