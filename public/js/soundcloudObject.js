@@ -23,6 +23,6 @@ var SoundCloudAudioSource = function(audioElement) {
 
     this.playStream = function(streamUrl) {
         player.setAttribute('src', streamUrl);
-        player.play();
+        //player.play();
     }
 };
